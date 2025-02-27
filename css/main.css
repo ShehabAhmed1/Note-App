@@ -138,6 +138,7 @@ header .theme_icon {
   gap: 3px;
   align-items: center;
   border-radius: var(--radius-5);
+  cursor: pointer;
 }
 header .theme_icon.active {
   background-color: var(--white_10);
@@ -344,7 +345,7 @@ header .theme_icon.active span:nth-child(3) {
   border-radius: var(--radius-5);
   position: absolute;
   right: 0;
-  top: 0px;
+  top: 100px;
   visibility: hidden;
   transition: all 0.2s linear;
   z-index: 2;
