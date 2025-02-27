@@ -1,4 +1,3 @@
-import "./script.js";
 //get background
 document.documentElement.style.setProperty("--hue", localStorage.getItem("bg"));
 let theme_index = localStorage.getItem("theme_index") || 0;
