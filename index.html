@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taskbuddy</title>
+    <link rel="shortcut icon" href="favicon.svg" type="svg" />
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- fontawsome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- main styling sheets -->
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <section class="App">
+      <div class="main_container">
+        <!-- start header -->
+        <header>
+          <div class="date">
+            <h1>My Day</h1>
+            <p>Saturday, July 2</p>
+          </div>
+          <div class="theme_icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </header>
+        <!-- end header -->
+
+        <!-- start themes box -->
+        <div class="themes_box">
+          <h3>Theme</h3>
+          <div class="themes">
+            <span class="theme_1"> </span>
+            <span class="theme_2"> </span>
+            <span class="theme_3"> </span>
+            <span class="theme_4"> </span>
+            <span class="theme_5"> </span>
+            <span class="theme_6"> </span>
+          </div>
+          <div class="info">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>App info</span>
+          </div>
+        </div>
+        <!-- end themes box -->
+
+        <!-- start edit task -->
+        <div class="edit_task">
+          <textarea></textarea>
+          <button>ok</button>
+        </div>
+        <!-- end edit task -->
+
+        <!-- start info box -->
+        <div class="info_unit">
+          <h2>App info</h2>
+          <p>Version:<span>1.0.0</span></p>
+          <p>Publish:<span>06 July 2022</span></p>
+          <p>Last Update: <span>06 July 2022</span></p>
+          <p>Created by: <span>shehab Ahmed</span></p>
+          <button>ok</button>
+        </div>
+        <!-- end info box -->
+        <!-- start taskes area -->
+        <div class="tasks">
+          <div class="display_tasks">
+            <figure>
+              <img src="images/calender-image.svg" alt="calender image" />
+              <p>Wondering where your tasks are?</p>
+            </figure>
+          </div>
+          <div class="add_task">
+            <div class="add_field">
+              <ion-icon
+                name="add-outline"
+                class="add-icon"
+                aria-hidden="true"
+              ></ion-icon>
+              <p>add a task</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end taskes area -->
+    </section>
+    <div class="overlayout"></div>
+    <!-- main js sheets -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script src="js/script.js"></script>
+    <!-- script -->
+    <script src="js/localStorage.js" type="module"></script>
+  </body>
+</html>

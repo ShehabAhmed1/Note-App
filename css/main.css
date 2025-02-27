@@ -1,0 +1,459 @@
+/*******
+*************** 
+main styling for mobile and we will make it responsive after that 
+
+**************
+********************/
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+:root {
+  /* ## Colors */
+
+  --granite-gray: hsl(210, 1%, 37%);
+  --eerie-black: hsl(240, 2%, 11%);
+  --slimy-green: hsl(91, 100%, 30%);
+  --fuzzy-wuzzy: hsl(0, 42%, 57%);
+  --davys-gray: hsl(220, 2%, 28%);
+  --cultured-1: hsl(228, 17%, 94%);
+  --cultured-2: hsl(0, 0%, 96%);
+  --dim-gray: hsl(240, 1%, 41%);
+  --white_80: hsla(0, 0%, 100%, 0.8);
+  --white_70: hsla(0, 0%, 100%, 0.7);
+  --white_40: hsla(0, 0%, 100%, 0.4);
+  --white_10: hsla(0, 0%, 100%, 0.1);
+  --black_05: hsla(0, 0%, 0%, 0.05);
+  --black_50: hsla(0, 0%, 0%, 0.5);
+  --black_25: hsla(0, 0%, 0%, 0.25);
+  --white-2: hsl(0, 0%, 98%);
+  --white-1: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+
+  /* ## Theme colors */
+
+  --hue: 227;
+  --theme-bg: linear-gradient(
+    to bottom,
+    hsl(var(--hue, 227), 40%, 50%),
+    hsl(var(--hue, 227), 40%, 60%)
+  );
+  --theme-color: hsl(var(--hue, 227), 42%, 57%);
+
+  /* ## Typography */
+
+  --ff-roboto: "Roboto", sans-serif;
+
+  --fs-1: 2.6rem;
+  --fs-2: 2.2rem;
+  --fs-3: 1.8rem;
+  --fs-4: 1.4rem;
+  --fs-5: 1.2rem;
+
+  --fw-500: 500;
+
+  /* ## Radius */
+
+  --radius-4: 4px;
+  --radius-5: 5px;
+  --radius-10: 10px;
+
+  /* ## Shadow */
+
+  --shadow-1: 0 0 5px hsla(0, 0%, 0%, 0.05);
+  --shadow-2: 0 0 10px hsla(0, 0%, 0%, 0.05);
+
+  /* ## Transition */
+
+  --transition: 0.15s ease;
+  --cubic-out: cubic-bezier(0.05, 0.65, 0.25, 1);
+}
+
+body {
+  font-family: var(--ff-roboto);
+  background-image: var(--theme-bg);
+  background-repeat: no-repeat;
+}
+
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+.main_container {
+  padding: 0 10px;
+  margin: auto;
+  max-width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.App {
+  height: 100vh;
+  padding: 20px 10px;
+  position: relative;
+}
+/*-----------------------------------*\
+  #REUSED STYLE
+\*-----------------------------------*/
+
+button {
+  width: 100%;
+  padding: 3px;
+  border-radius: var(--radius-4);
+  outline: none;
+  border: none;
+  margin-top: 5px;
+  background-image: var(--theme-bg);
+  color: var(--white-1);
+  font-size: var(--fs-5);
+}
+/*-----------------------------------*\
+  #HEADER
+\*-----------------------------------*/
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .date {
+  color: var(--white-1);
+}
+header .date h1 {
+  font-size: var(--fs-3);
+  margin-bottom: 5px;
+}
+header .date p {
+  font-size: 13px;
+}
+header .theme_icon {
+  padding: 15px 10px;
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  border-radius: var(--radius-5);
+}
+header .theme_icon.active {
+  background-color: var(--white_10);
+}
+header .theme_icon span {
+  display: block;
+  width: 4px;
+  height: 4px;
+  background-color: var(--white-1);
+  border-radius: 50%;
+}
+header .theme_icon.active span:nth-child(1) {
+  height: 20px;
+  transform: rotate(45deg) translate(0px, -4px);
+}
+header .theme_icon.active span:nth-child(2) {
+  display: none;
+}
+header .theme_icon.active span:nth-child(3) {
+  height: 20px;
+  transform: rotate(-45deg) translate(-1px, -5px);
+}
+
+/*-----------------------------------*\
+  #MAIN
+\*-----------------------------------*/
+
+.tasks {
+  height: calc(100vh - 74.6px);
+  padding: 10px 0 30px 0;
+}
+.tasks .display_tasks {
+  height: calc(100% - 65px);
+  position: relative;
+  overflow-y: auto;
+}
+.tasks .display_tasks figure {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+}
+.tasks .display_tasks figure p {
+  color: var(--white-1);
+  font-size: var(--fs-4);
+}
+.display_tasks .task_container {
+  display: flex;
+  background-color: var(--white-2);
+  padding: 10px;
+  border-radius: var(--radius-4);
+  align-items: center;
+  margin-bottom: 5px;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 10px;
+}
+.display_tasks .task_container .circle-icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--granite-gray);
+  border-radius: 50%;
+}
+.display_tasks .task_container .circle-icon:hover:before {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 7px;
+  background-color: var(--slimy-green);
+  transform: rotate(-45deg);
+  position: absolute;
+  left: 5px;
+  top: 42%;
+}
+.display_tasks .task_container .circle-icon:hover:after {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 10px;
+  background-color: var(--slimy-green);
+  transform: rotate(45deg);
+  position: absolute;
+  left: 10px;
+  top: 27%;
+}
+.display_tasks .task_container .circle-icon.active {
+  background-color: var(--theme-color);
+  border-color: var(--theme-color);
+}
+
+.display_tasks .task_container p {
+  margin: 0 5px;
+  width: calc(100% - 70px);
+  word-wrap: break-word;
+}
+
+.display_tasks .task_container .feature {
+  display: flex;
+  gap: 5px;
+}
+.display_tasks .task_container [name="trash-outline"],
+.display_tasks .task_container .feature i {
+  color: var(--black_50);
+  font-size: var(--fs-5);
+  visibility: hidden;
+  width: 30px;
+}
+.display_tasks .task_container:hover [name="trash-outline"],
+.display_tasks .task_container:hover i {
+  visibility: visible;
+}
+
+.task_container [name="trash-outline"]:hover {
+  color: var(--fuzzy-wuzzy);
+}
+.display_tasks .task_container i:hover {
+  color: var(--slimy-green);
+}
+
+.tasks .add_task {
+  margin-top: 20px;
+}
+.tasks .add_task .add_field {
+  display: flex;
+  gap: 10px;
+  color: var(--black);
+  align-items: center;
+  background-color: var(--white_70);
+  padding: 10px;
+  border-radius: var(--radius-5);
+  height: 45px;
+}
+.tasks .add_task .add_field [name="add-outline"] {
+  font-size: var(--fs-5);
+  color: var(--black);
+}
+.tasks .circle-icon {
+  font-size: var(--fs-3);
+  color: var(--black_50);
+}
+.tasks .add_task .add_field [name="task"] {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 16px;
+}
+
+.edit_task {
+  display: block;
+  width: calc(100% - 20px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--black_25);
+  padding: 10px;
+  border-radius: var(--radius-5);
+  overflow-x: hidden;
+  visibility: hidden;
+  z-index: 1000;
+}
+.edit_task.active {
+  visibility: visible;
+}
+.edit_task textarea {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 10px;
+  border-radius: var(--radius-5);
+  outline: none;
+  padding: 10px;
+  font-size: var(--fs-5);
+  font-family: var(--ff-roboto);
+}
+.edit_task button {
+  width: 100%;
+  border-radius: var(--radius-5);
+  background-color: var(--slimy-green);
+  background-image: none;
+}
+
+.overlayout.active {
+  width: 100%;
+  height: 100%;
+  background-color: var(--black_50);
+  position: absolute;
+  z-index: 1;
+  top: 0;
+}
+
+/*-----------------------------------*\
+  #MODAL
+\*-----------------------------------*/
+
+/* start theme box */
+.themes_box {
+  width: 250px;
+  background-color: var(--cultured-2);
+  padding: 10px;
+  border-radius: var(--radius-5);
+  position: absolute;
+  right: 0;
+  top: 0px;
+  visibility: hidden;
+  transition: all 0.2s linear;
+  z-index: 2;
+}
+.themes_box.active {
+  visibility: visible;
+  top: 60px;
+}
+.themes_box h3 {
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.themes_box .themes {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.themes_box .themes span {
+  width: 50px;
+  height: 50px;
+  display: block;
+  outline: 2px solid transparent;
+  outline-offset: 3px;
+  cursor: pointer;
+}
+.themes_box .themes span.active {
+  outline-color: var(--slimy-green);
+}
+.themes_box .info {
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.themes_box .info [name="information-circle-outline"],
+.info span {
+  color: var(--dim-gray);
+}
+.themes_box .info [name="information-circle-outline"] {
+  font-size: var(--fs-5);
+}
+
+/* end theme box */
+
+/* start app info */
+.info_unit {
+  width: 250px;
+  padding: 10px;
+  background-color: var(--cultured-2);
+  border-radius: var(--radius-5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 2;
+}
+.info_unit.active {
+  display: block;
+}
+.info_unit h2 {
+  margin-bottom: 10px;
+  font-size: var(--fs-4);
+  font-weight: var(--fw-500);
+  color: var(--theme-color);
+}
+.info_unit p {
+  margin-bottom: 5px;
+}
+.info_unit p span {
+  color: var(--dim-gray);
+  margin-left: 5px;
+}
+.info_unit p:last-of-type span {
+  color: rgba(0, 0, 255, 0.581);
+}
+
+/* end app info */
+
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+
+@media (min-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .App {
+    width: 700px;
+    height: 650px;
+    background-color: var(--white_10);
+    border-radius: var(--radius-10);
+  }
+  .display_tasks .task_container {
+    flex-direction: row;
+  }
+  .tasks {
+    height: calc(650px - 74.6px);
+    padding: 10px 0 30px 0;
+  }
+
+  .edit_task {
+    width: 500px;
+  }
+}
